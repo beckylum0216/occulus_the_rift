@@ -10,6 +10,7 @@ set(SDL2_LIBRARY ${CMAKE_CURRENT_LIST_DIR}/SDL2-devel-2.0.8-VC/SDL2-2.0.8/lib/x8
 #set(SDL2_LIBRARY_TEMP "D:/SDL2/SDL/lib")
 set(SDL2_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/SDL2-devel-2.0.8-VC/SDL2-2.0.8/include)
 set(SDL2_SDLMAIN_LIBRARY ${CMAKE_CURRENT_LIST_DIR}/SDL2-devel-2.0.8-VC/SDL2-2.0.8/lib/x86/SDL2main.lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/build)
 #set(SDL2_DIR "D:/SDL2/SDL2-2.0.8")
 FIND_PATH(GLUT_INCLUDE_DIR NAMES GL/freeglut.h)
 include_directories(.)
@@ -18,7 +19,8 @@ include_directories(${SDL2_INCLUDE_DIR})
 add_executable(
 		occulus_the_rift
 		main.cpp
-        
+		AABB.h
+		AABB.cpp
 		)
 
 #find_file(SDL2_INCLUDE_DIR NAMES SDL.h HINTS SDL2)
