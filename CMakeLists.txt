@@ -21,7 +21,15 @@ add_executable(
 		main.cpp
 		AABB.h
 		AABB.cpp
-		)
+		Game.h
+		Game.cpp
+		Actor.h
+		Actor.cpp
+		Player.h 
+		Player.cpp
+		Cube.h 
+		Cube.cpp
+)
 
 #find_file(SDL2_INCLUDE_DIR NAMES SDL.h HINTS SDL2)
 #find_file(SDL2_LIBRARY NAMES SDL2.lib)
