@@ -40,6 +40,7 @@ TestAABB::CollisionTest()
 	objectTwo.SetMinPoint(inputMin);
 	objectTwo.SetMaxPoint(inputMax);
 
+	
 	std::cout << "Test: " << objectOne.AABBtoAABB(objectTwo) << std::endl;
 
 }
