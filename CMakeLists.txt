@@ -46,6 +46,6 @@ find_package(GLUT REQUIRED)
 find_package(SDL2 REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  ${SDL2_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR}/Tests)
-target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY})
+target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY} TESTING)
 
 install(TARGETS occulus_the_rift DESTINATION ${CMAKE_CURRENT_LIST_DIR}/bin )

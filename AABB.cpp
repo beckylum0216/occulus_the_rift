@@ -36,14 +36,27 @@ Pointz AABB::GetMaxPoint()
 }
 
 
-bool AABB::AABBtoAABB(const AABB &objectOther)
+bool AABB::AABBtoAABB(AABB &objectOther)
 {	
-	return (	maxPoint.x > objectOther.GetMinPoint.x &&
-				minPoint.x < objectOther.GetMaxPoint.x &&
-				maxPoint.y > objectOther.GetMinPoint.y &&
-				minPoint.y < objectOther.GetMaxPoint.y &&
-				maxPoint.z > objectOther.GetMinPoint.z &&
-				minPoint.z < objectOther.GetMaxPoint.z);
+	return (	maxPoint.x > objectOther.minPoint.x &&
+				minPoint.x < objectOther.maxPoint.x &&
+				maxPoint.y > objectOther.minPoint.y &&
+				minPoint.y < objectOther.maxPoint.y &&
+				maxPoint.z > objectOther.minPoint.z &&
+				minPoint.z < objectOther.maxPoint.z);
 }
 
+
+Pointz AABB::IntersectionDepth(AABB &objectTarget)
+{
+	Pointz theResult;
+	if (AABBtoAABB(objectTarget))
+	{
+		theResult.x = minPoint.x - objectTarget.maxPoint.x;
+		theResult.y = minPoint.y - objectTarget.maxPoint.y;
+		theResult.z = minPoint.z - objectTarget.maxPoint.z;
+	}
+
+	return theResult;
+}
 
