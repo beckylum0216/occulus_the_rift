@@ -1,5 +1,4 @@
 #include "Actor.h"
-#include "AABB.h"
 
 Actor::Actor() {
 	position = { 0.0, 0.0, 0.0 };

@@ -2,6 +2,8 @@
 #include "AABB.h"
 #include "gl/glut.h"
 
+
+
 AABB::AABB()
 {
 
@@ -12,36 +14,36 @@ AABB::~AABB()
 
 }
 
-void AABB::SetMinPoint(Point inputMinPoint)
+void AABB::SetMinPoint(Pointz inputMinPoint)
 {
 	minPoint = inputMinPoint;
 }
 
-Point AABB::GetMinPoint()
+Pointz AABB::GetMinPoint()
 {
 	return minPoint;
 }
 
-void AABB::SetMaxPoint(Point inputMaxPoint)
+void AABB::SetMaxPoint(Pointz inputMaxPoint)
 {
 	maxPoint = inputMaxPoint;
 }
 
 
-Point AABB::GetMaxPoint()
+Pointz AABB::GetMaxPoint()
 {
 	return maxPoint;
 }
 
 
 bool AABB::AABBtoAABB(const AABB &objectOther)
-{
-	return (maxPoint.x > objectOther.minBox.x &&
-			minPoint.x < objectOther.maxBox.x &&
-			maxPoint.y > objectOther.minBox.y &&
-			minPoint.y < objectOther.maxBox.y &&
-			maxPoint.z > objectOther.minBox.z &&
-			minPoint.z < objectOther.maxBox.z);
+{	
+	return (	maxPoint.x > objectOther.GetMinPoint.x &&
+				minPoint.x < objectOther.GetMaxPoint.x &&
+				maxPoint.y > objectOther.GetMinPoint.y &&
+				minPoint.y < objectOther.GetMaxPoint.y &&
+				maxPoint.z > objectOther.GetMinPoint.z &&
+				minPoint.z < objectOther.GetMaxPoint.z);
 }
 
 

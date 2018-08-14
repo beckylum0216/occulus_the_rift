@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.10)
+
 project(occulus_the_rift)
+cmake_minimum_required(VERSION 3.10)
+
 set(CMAKE_CXX_STANDARD 14)
 #D:\Murdoch\ICT290\Tutorial1\CAMPUS TOUR\SDL2-devel-2.0.8-VC\SDL2-2.0.8\FindSDL2.cmake
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/SDL2-devel-2.0.8-VC/SDL2-2.0.8)
@@ -44,6 +46,6 @@ find_package(GLUT REQUIRED)
 find_package(SDL2 REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  ${SDL2_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR}/Tests)
-target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY} TESTING)
+target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY})
 
 install(TARGETS occulus_the_rift DESTINATION ${CMAKE_CURRENT_LIST_DIR}/bin )

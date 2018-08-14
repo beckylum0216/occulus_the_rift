@@ -138,11 +138,11 @@ public:
 
 	
 protected:
-	Point position,	/*<! The position of the Actor */
-		rotation,	/*<! The rotation of the Actor */
-		scale;		/*<! The scale of the Actor */
+	Point	position,	/*<! The position of the Actor */
+			rotation,	/*<! The rotation of the Actor */
+			scale;		/*<! The scale of the Actor */
 
-	Tag tagType;	/*<! The Tag associated with the Actor*/
+	Tag		tagType;	/*<! The Tag associated with the Actor*/
 
 	//Model*
 	//Texture*

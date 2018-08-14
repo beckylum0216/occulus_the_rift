@@ -1,8 +1,10 @@
-
+#include <iostream>
 #include "TestAABB.h"
 #include "../AABB.h"
 
-TestAABB::Test_AABB()
+using namespace std;
+
+TestAABB::TestAABB()
 {
 
 }
@@ -13,12 +15,12 @@ TestAABB::~TestAABB()
 }
 
 
-TestAABB::CollisionTest()
+bool TestAABB::CollisionTest()
 {
 	AABB objectOne;
 	AABB objectTwo;
-	Point inputMin;
-	Point inputMax;
+	Pointz inputMin;
+	Pointz inputMax;
 
 	inputMin.x = 0.0;
 	inputMin.y = 0.0;
@@ -43,4 +45,5 @@ TestAABB::CollisionTest()
 	
 	std::cout << "Test: " << objectOne.AABBtoAABB(objectTwo) << std::endl;
 
+	return objectOne.AABBtoAABB(objectTwo);
 }
