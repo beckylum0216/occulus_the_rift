@@ -13,8 +13,8 @@ Game::~Game() {
 void Game::Initialise() {
 	deltaTime = clock();
 
-	user.SetMoveSpeed(1);
-	user.SetRotateSpeed(0.005);
+	user.SetMoveSpeed(0.05);
+	user.SetRotateSpeed(0.0005);
 }
 
 void Game::Run() {
