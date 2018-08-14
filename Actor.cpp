@@ -1,4 +1,5 @@
 #include "Actor.h"
+#include "AABB.h"
 
 Actor::Actor() {
 	position = { 0.0, 0.0, 0.0 };
@@ -58,3 +59,5 @@ Point Actor::GetScale() {
 Tag Actor::GetTagType() {
 	return tagType;
 }
+
+

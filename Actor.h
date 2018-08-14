@@ -45,14 +45,16 @@ public:
 	Tag GetTagType();
 	//--------------------------------------------------------------
 
-protected:
-	Point position,
-		rotation,
-		scale;
+	bool TestCollision();
 
-	Tag tagType;
+	protected:
+		Point	position,
+				rotation,
+				scale;
 
-	//Model*
-	//Texture*
-	//Collision
+		Tag tagType;
+
+		//Model*
+		//Texture*
+		AABB Collision;
 };

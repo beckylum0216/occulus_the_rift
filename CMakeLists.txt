@@ -16,6 +16,10 @@ FIND_PATH(GLUT_INCLUDE_DIR NAMES GL/freeglut.h)
 include_directories(.)
 include_directories(${GLUT_INCLUDE_DIR})
 include_directories(${SDL2_INCLUDE_DIR})
+
+#add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Tests)
+add_subdirectory(Tests)
+
 add_executable(
 		occulus_the_rift
 		main.cpp
@@ -29,6 +33,7 @@ add_executable(
 		Player.cpp
 		Cube.h 
 		Cube.cpp
+		
 )
 
 #find_file(SDL2_INCLUDE_DIR NAMES SDL.h HINTS SDL2)
@@ -38,7 +43,7 @@ find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 find_package(SDL2 REQUIRED)
 
-include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  ${SDL2_INCLUDE_DIR})
-target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY})
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  ${SDL2_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR}/Tests)
+target_link_libraries(occulus_the_rift ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${SDL2_LIBRARY} ${SDL2_SDLMAIN_LIBRARY} TESTING)
 
 install(TARGETS occulus_the_rift DESTINATION ${CMAKE_CURRENT_LIST_DIR}/bin )

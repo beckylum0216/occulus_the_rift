@@ -34,14 +34,14 @@ Point AABB::GetMaxPoint()
 }
 
 
-bool AABB::AABBtoAABB(const Box &objectOne, const Box &objectTwo)
+bool AABB::AABBtoAABB(const AABB &objectOther)
 {
-	return (objectOne.maxBox.x > objectTwo.minBox.x &&
-			objectOne.minBox.x < objectTwo.maxBox.x &&
-			objectOne.maxBox.y > objectTwo.minBox.y &&
-			objectOne.minBox.y < objectTwo.maxBox.y &&
-			objectOne.maxBox.z > objectTwo.minBox.z &&
-			objectOne.minBox.z < objectTwo.maxBox.z);
+	return (maxPoint.x > objectOther.minBox.x &&
+			minPoint.x < objectOther.maxBox.x &&
+			maxPoint.y > objectOther.minBox.y &&
+			minPoint.y < objectOther.maxBox.y &&
+			maxPoint.z > objectOther.minBox.z &&
+			minPoint.z < objectOther.maxBox.z);
 }
 
 

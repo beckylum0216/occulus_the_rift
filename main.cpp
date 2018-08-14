@@ -3,6 +3,7 @@
 #include <gl/glut.h>
 
 #include "Game.h"
+#include "Tests/TestAABB.h"
 
 Game game;
 
@@ -33,6 +34,8 @@ int main(int argc, char **argv)
 
 	glutMainLoop();
 
+	
+
 	return 0;
 }
 
@@ -55,6 +58,9 @@ void Init() {
 	glLoadIdentity();
 
 	glEnable(GL_DEPTH_TEST);
+
+	TestAABB theTest;
+	theTest.CollisionTest();
 }
 
 void UpdateDisplay() {

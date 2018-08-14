@@ -20,7 +20,7 @@ class AABB
 		Point GetMinPoint();
 		void SetMaxPoint(Point inputMax);
 		Point GetMaxPoint();
-		bool AABBtoAABB(const Box &objectOne, const Box &objectTwo);
+		bool AABBtoAABB(const AABB &objectOther);
 
 	private:
 		Point minPoint;
