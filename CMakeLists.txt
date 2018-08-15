@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.10)
+
 project(occulus_the_rift)
+cmake_minimum_required(VERSION 3.10)
+
 set(CMAKE_CXX_STANDARD 14)
 #D:\Murdoch\ICT290\Tutorial1\CAMPUS TOUR\SDL2-devel-2.0.8-VC\SDL2-2.0.8\FindSDL2.cmake
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/SDL2-devel-2.0.8-VC/SDL2-2.0.8)
@@ -33,6 +35,12 @@ add_executable(
 		Player.cpp
 		Cube.h 
 		Cube.cpp
+		Texture.h
+		Texture.cpp
+		Model.h
+		Model.cpp
+		lodepng.h
+		lodepng.cpp
 		
 )
 
