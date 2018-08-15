@@ -26,13 +26,13 @@ public:
 	*	Returns the width of the texture
 	*	@return width of texture
 	*/
-	unsigned GetWidth(){ return texW; };
+	unsigned GetWidth(){};
 
 	/**
 	*	Returns the height of the texture
 	*	@return height of texture
 	*/
-	unsigned GetHeight() { return texH; };
+	unsigned GetHeight() {};
 
 private:
 	unsigned texW;/*<! Texture width*/
@@ -40,23 +40,4 @@ private:
 	std::vector<unsigned char> data; /*<! Texture as array of bytes*/
 };
 
-
-void Texture::LoadTexture(std::string filePath, unsigned w, unsigned h)
-{
-	texW = w;
-	texH = h;
-
-	unsigned error = lodepng::decode(data, texW, texH, filePath);
-
-	if (error != 0)
-	{
-		std::cout << "error " << error << ": " << lodepng_error_text(error) << std::endl;
-		exit(1);
-	}
-}
-
-std::vector<unsigned char> & Texture::GetTexture()
-{
-	return data;
-}
 
