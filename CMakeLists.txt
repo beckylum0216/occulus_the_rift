@@ -35,6 +35,10 @@ add_executable(
 		Player.cpp
 		Cube.h 
 		Cube.cpp
+		Texture.h
+		Model.h
+		lodepng.h
+		lodepng.cpp
 		
 )
 
