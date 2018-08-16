@@ -23,10 +23,10 @@ include_directories(${SDL2_INCLUDE_DIR})
 
 #Adding Testing settings
 #d:\Murdoch\ICT290\occulus_the_rift\Assignment1\Test_Oculus_The_Rift\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0\build\native\include\gtest\gtest.h
-#set(GTEST_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/Test_Oculus_The_Rift/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0/build/native/include)
+set(GTEST_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/Test_Oculus_The_Rift/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.0/build/native/include)
 #add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Tests)
 #add_subdirectory(Tests)
-#add_subdirectory(Test_Oculus_The_Rift)
+add_subdirectory(Test_Oculus_The_Rift)
 
 add_executable(
 		occulus_the_rift
@@ -59,8 +59,8 @@ find_package(GLUT REQUIRED)
 find_package(SDL2 REQUIRED)
 
 include_directories(	${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS}  ${SDL2_INCLUDE_DIR} 
-						#${CMAKE_CURRENT_LIST_DIR}/Test_Oculus_The_Rift 
-						#${GTEST_INCLUDE_DIR}
+						${CMAKE_CURRENT_LIST_DIR}/Test_Oculus_The_Rift 
+						${GTEST_INCLUDE_DIR}
 						)
 
 target_link_libraries(	occulus_the_rift 
@@ -68,7 +68,7 @@ target_link_libraries(	occulus_the_rift
 						${GLUT_LIBRARIES} 
 						${SDL2_LIBRARY} 
 						${SDL2_SDLMAIN_LIBRARY} 
-						#TEST_OCULUS
+						TEST_OCULUS
 						)
 
 install(TARGETS occulus_the_rift DESTINATION ${CMAKE_CURRENT_LIST_DIR}/bin )

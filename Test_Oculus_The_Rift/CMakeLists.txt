@@ -21,13 +21,13 @@ set(HEADERS
 
 # Create a library called "Testing" which includes the source file "Testing.cxx".
 # The extension is already found. Any number of sources could be listed here.
-#add_library (TEST_OCULUS pch.h pch.cpp)
+add_library (TEST_OCULUS pch.h pch.cpp)
 
 # Adding parent source
 #add_subdirectory(${PARENT_DIR})
 
 
-#include_directories(${PARENT_DIR})
+include_directories(${PARENT_DIR} ${GTEST_INCLUDE_DIR})
 
 #link_libraries( ${PARENT_DIR})
 

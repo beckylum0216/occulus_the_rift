@@ -26,13 +26,13 @@ public:
 	*	Returns the width of the texture
 	*	@return width of texture
 	*/
-	unsigned GetWidth(){};
+	unsigned GetWidth();
 
 	/**
 	*	Returns the height of the texture
 	*	@return height of texture
 	*/
-	unsigned GetHeight() {};
+	unsigned GetHeight();
 
 private:
 	unsigned texW;/*<! Texture width*/
