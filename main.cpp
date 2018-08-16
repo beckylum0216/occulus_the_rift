@@ -3,7 +3,6 @@
 #include <gl/glut.h>
 
 #include "Game.h"
-#include "Tests/TestAABB.h"
 
 Game game;
 
@@ -59,10 +58,6 @@ void Init() {
 
 	glEnable(GL_DEPTH_TEST);
 
-	TestAABB theTest;
-	theTest.CollisionTest001();
-	theTest.CollisionTest002();
-	theTest.CollisionTest003();
 }
 
 void UpdateDisplay() {
