@@ -11,14 +11,31 @@
  *	@enum KeyCode
  */
 enum KeyCode {
-	W,
-	A,
-	S,
-	D,
-	Space,
-	LeftShift,
-	LeftClick,
-	RightClick
+	keyW=1,
+	keyw=1,
+	keyA=2,
+	keya=2,
+	keyS=3,
+	keys=3,
+	keyD=4,
+	keyd=4,
+	keyR=5,
+	keyr=5,
+	upArrow=5,
+	keyQ=6,
+	keyq=6,
+	leftArrow=6,
+	keyF=7,
+	keyf=7,
+	downArrow=7,
+	keyE=8,
+	keye=8,
+	rightArrow=8,
+	keySpace=9,
+	leftShift=10,
+	leftClick=11,
+	rightClick=12,
+	MAX_KeyCode
 };
 
 /**
@@ -96,11 +113,18 @@ public:
 	 */
 	void inputUp(unsigned char key, int x, int y);
 
-	void SetKeyDown(bool value, KeyCode key);
-	void SetKeyUp(bool value, KeyCode key);
+	void SetButtonDown(bool value, KeyCode button);
+	void SetButtonUp(bool value, KeyCode button);
 
-	bool GetKeyDown(KeyCode key);
-	bool GetKeyUp(KeyCode key);
+	bool GetButtonDown(KeyCode button);
+	bool GetButtonUp(KeyCode button);
+
+	/**
+	* A normal member taking 1 argument
+	* Is used to convert a char representing a key to an enum representing an ingame action
+	* @param key the key to be converted
+	*/
+	KeyCode KeyToButton(char key);
 
 private:
 	//vector<Model*> models
@@ -112,8 +136,8 @@ private:
 	/**/ Player user;
 	/**/ Cube a, b, c, d;
 	//--------------------------
-	std::vector<bool> KeyDown;
-	std::vector<bool> KeyUp;
+	bool KeyDown[MAX_KeyCode];
+	bool KeyUp[MAX_KeyCode];
 
 	float deltaTime; /*<! A change in time variable */
 };

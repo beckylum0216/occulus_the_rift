@@ -42,7 +42,9 @@ add_executable(
 		Cube.h 
 		Cube.cpp
 		Texture.h
+		Texture.cpp
 		Model.h
+		Model.cpp
 		lodepng.h
 		lodepng.cpp
 		Vector3.cpp
