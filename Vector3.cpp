@@ -89,7 +89,7 @@ Vector3 Vector3::CrossProduct(Vector3 otherVector)
 	return tempVector;
 }
 
-Vector3 Vector3::UnitNormal(Vector3 vectorInput)
+Vector3 Vector3::UnitNormal()
 {
 	GLdouble theVectorMagnitude;
 	Vector3 theResultVector;
@@ -102,3 +102,30 @@ Vector3 Vector3::UnitNormal(Vector3 vectorInput)
 	return theResultVector;
 }
 
+GLdouble Vector3::VectorAngle(Vector3 targetVector)
+{
+	GLdouble tempDotResult;
+	GLdouble magnitudeOne;
+	GLdouble magnitudeTwo;
+	GLdouble magnitudeProduct;
+	GLdouble resultAngle;
+
+	tempDotResult = DotProduct(targetVector);
+	magnitudeOne = VectorMagnitude();
+	magnitudeTwo = targetVector.VectorMagnitude();
+	magnitudeProduct = magnitudeOne * magnitudeTwo;
+	resultAngle = acos(tempDotResult / magnitudeProduct);
+
+	return resultAngle;
+}
+
+Vector3 Vector3::SubtractVector(Vector3 theInputVector)
+{
+	Vector3 resultVector;
+
+	resultVector.x = x - theInputVector.x;
+	resultVector.y = y - theInputVector.y;
+	resultVector.z = z - theInputVector.z;
+
+	return resultVector;
+}

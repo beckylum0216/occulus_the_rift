@@ -22,7 +22,9 @@ class Vector3
 		GLdouble DotProduct(Vector3 inputVector);
 		GLdouble VectorMagnitude();
 		Vector3 CrossProduct(Vector3 otherVector);
-		Vector3 UnitNormal(Vector3 vectorInput);
+		Vector3 UnitNormal();
+		GLdouble VectorAngle(Vector3 targetVector);
+		Vector3 SubtractVector(Vector3 theInputVector);
 
 	private:
 		GLdouble x;

@@ -1,5 +1,8 @@
 
 #include "pch.h"
+
+#include <math.h>
+
 #include "AABB.h"
 #include "Vector3.h"
 #include "gl/glut.h"
@@ -51,15 +54,73 @@ bool AABB::AABBtoAABB(AABB &objectOther)
 }
 
 
-Vector3 AABB::IntersectionDepth(AABB &objectTarget)
+Vector3 AABB::ProjectionNormal()
 {
-	Vector3 theResult;
-	if (AABBtoAABB(objectTarget))
+	Vector3 theProjection;
+	Vector3 theNormalVector;
+
+	theProjection = maxPoint.SubtractVector(minPoint);
+	theNormalVector = theProjection.UnitNormal();
+
+	return theNormalVector;
+}
+
+
+Projection AABB::VectorProjection()
+{
+	Vector3 resultNormal;
+	GLdouble projectionOne;
+	GLdouble projectionTwo;
+	Projection resultProjection;
+
+	resultNormal = ProjectionNormal();
+	projectionOne = minPoint.DotProduct(resultNormal);
+	projectionTwo = maxPoint.DotProduct(resultNormal);
+
+	resultProjection = Projection(std::min(projectionOne, projectionTwo), std::max(projectionOne, projectionTwo));
+
+	return resultProjection;
+}
+
+
+//float intersectionDepth = (mina < minb)? (maxa - minb) : (mina - maxb);
+GLdouble AABB::ProjectionOverlap(Projection targetProjection)
+{
+	Projection theProjection;
+	GLdouble theOverlap;
+
+	theProjection = VectorProjection();
+
+	if (theProjection.GetMinProjection() < targetProjection.GetMinProjection())
 	{
-		theResult.setPointX(minPoint.getPointX() - objectTarget.maxPoint.getPointX());
-		theResult.setPointY(minPoint.getPointY() - objectTarget.maxPoint.getPointY());
-		theResult.setPointZ(minPoint.getPointZ() - objectTarget.maxPoint.getPointZ());
+		theOverlap = theProjection.GetMaxProjection() - targetProjection.GetMinProjection();
+	}
+	else
+	{
+		theOverlap = theProjection.GetMinProjection() - targetProjection.GetMaxProjection();
 	}
 
-	return theResult;
+	return theOverlap;
+
+}
+
+
+// calculating depth penetration using SAT to find the minimum translation vector
+Vector3 AABB::MinimumTranslationVector(AABB &projectTarget)
+{
+	Projection targetObject;
+	GLdouble overlapDepth;
+	Vector3 theMTV;
+
+	targetObject = projectTarget.VectorProjection();
+
+	if (AABBtoAABB(projectTarget))
+	{
+		overlapDepth = ProjectionOverlap(targetObject);
+	}
+	
+	// don't know what I am doing here
+	theMTV.setPointX( cos(minPoint.VectorAngle(maxPoint)) * overlapDepth);
+
+	return theMTV;
 }

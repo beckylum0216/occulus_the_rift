@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "gl/glut.h"
 #include "Vector3.h"
+#include "Projection.h"
 
 /**
 *	@class AABB
@@ -61,13 +62,41 @@ class AABB
 		bool AABBtoAABB(AABB &objectOther);
 
 		/**
+		*	@brief to find the orthognoal vector to the projection
+		*	@param inputTargetVector the comparison vector
+		*	@return vector perpendicular to the projection is returned
+		*	@pre
+		*	@post
+		*/
+		Vector3 ProjectionNormal();
+
+
+		/**
+		*	@brief to find the projection between two bounding boxes
+		*	@param targetVector the comparison vector
+		*	@return projected projection is returned
+		*	@pre 
+		*	@post
+		*/
+		Projection VectorProjection();
+
+		/**
 		*	@brief to find the depth of intersection
 		*	@param objectOther target object for comparison
 		*	@return a depth of intersection is returned
 		*	@pre minimum and maximum points must exist
 		*	@post
 		*/
-		Vector3 IntersectionDepth(AABB &objectTarget);
+		GLdouble ProjectionOverlap(Projection targetProjection);
+
+		/**
+		*	@brief to find the depth of intersection
+		*	@param objectOther target object for comparison
+		*	@return a depth of intersection is returned
+		*	@pre minimum and maximum points must exist
+		*	@post
+		*/
+		Vector3 MinimumTranslationVector(AABB &projectTarget);
 
 	private:
 		

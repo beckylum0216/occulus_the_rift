@@ -1,4 +1,3 @@
-
 project(occulus_the_rift)
 cmake_minimum_required(VERSION 3.10)
 
@@ -49,6 +48,8 @@ add_executable(
 		lodepng.cpp
 		Vector3.cpp
 		Vector3.h
+		Projection.cpp
+		Projection.h
 )
 
 #find_file(SDL2_INCLUDE_DIR NAMES SDL.h HINTS SDL2)
